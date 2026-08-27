@@ -1,0 +1,75 @@
+@use "./variables";
+@import "./app.css"; //tailwindcss
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+#root{
+    max-width: 1920px;
+    padding-inline: 24px;
+}
+
+
+.code-container{
+    overflow: hidden;
+}
+
+.code-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.code-container span{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: writeCode 1.2s linear forwards ;
+    width: 0;
+}
+
+
+    @for $i from 1 through 6 {
+        .code-container > span:nth-child(#{$i}) {
+            animation-delay: #{$i - 1}s;
+        }
+    }
+
+    @keyframes writeCode {
+        from{
+            width: 0;
+        }
+
+        to{
+            width: 100%;
+        }
+        
+    }
+
+
+    .hero-radial{
+        width: 340px;
+        height: 340px;
+        background: transparent;
+        filter: blur(60px);
+        z-index: -1;
+        border-radius: 50%;
+        position: absolute;
+        
+        &-left{
+            background: hwb(190 0% 0% / 0.21);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+
+
+    .hero-code{
+          box-shadow: 50px -300px 150px -180px hsla(260, 100%, 61%, 0.333) ;
+    }
+       
+
+        

@@ -1,0 +1,45 @@
+
+
+     <header class="bg-bg w-full py-7 relative z-10" {{ attributes }}>
+        <nav class="flex justify-between items-center h-full">
+            <a href="/" class="text-text flex items-center gap-3">
+                <span class="w-10 h-10 font-bold tracking-wider bg-linear-240 from-purple to-cyan rounded-xl grid place-items-center">MF</span>
+                <span class='text-text font-bold'>Web.Dev</span>
+            </a>
+
+            {% if route == "app_home" %}
+
+                {% set homeLinks = [
+                    {
+                        href:"#progetti",
+                        name:"Progetti"
+                    },
+                    {
+                        href:"#skills",
+                        name:"Skills",
+                    },
+                    {
+                        href:"#percorso",
+                        name:"Percorso",
+                    },
+                    {
+                        href:"#contatti",
+                        name:"Contatti",
+                    }
+                ]%}
+                
+                <ul class="flex gap-4 ">
+                    {% for link in homeLinks %}
+                        <li key="navItem-{{ link.name}}" class='hover:-translate-y-0.5 transition-transform duration-300'>
+                        <a 
+                        href={{link.href}} 
+                        class="text-muted block relative transition-all duration-300   hover:text-text after:content-[''] after:w-0 after:h-full after:border-b after:border-b-text after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-300"
+                        >
+                        {{link.name}}
+                        </a>
+                    </li>
+                {% endfor %}
+                 </ul>
+            {% endif %}
+        </nav>
+    </header>

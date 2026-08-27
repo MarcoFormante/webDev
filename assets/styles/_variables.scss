@@ -1,0 +1,31 @@
+/* Base */
+$color-bg: #090A12;
+$color-surface: #11131F;
+$color-surface-2: #0D0F1A;
+$color-card-light: #FFFFFF;
+/* Text*/
+$color-text: #FFFFFF;
+$color-text-soft: #DDE1F0;
+$color-muted: #B7B9C8;
+$color-muted-2: #85889A;
+$color-light-text: #4B4F62;
+/* Borders */
+$color-border: rgba(255, 255, 255, 0.12);
+$color-border-strong: rgba(255, 255, 255, 0.20);
+/* Accents */
+$color-purple: #7C3AFF;
+$color-cyan: #00D4FF;
+$color-green: #22C55E;
+$color-pink: #E84593;
+/* Effects */
+$glow-purple: rgba(124, 58, 255, 0.35);
+$glow-cyan: rgba(0, 212, 255, 0.28);
+$shadow-card: 0 24px 50px rgba(0, 0, 0, 0.45);
+/* Gradients */
+$gradient-primary: linear-gradient(90deg, $color-purple, $color-cyan);
+$gradient-mark: linear-gradient(135deg, $color-purple, $color-cyan);
+
+.bg-gradient-primary{
+    background: $gradient-primary;
+}
+

@@ -1,0 +1,89 @@
+@import "./app.css";
+/* Base */
+/* Text*/
+/* Borders */
+/* Accents */
+/* Effects */
+/* Gradients */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #7C3AFF, #00D4FF);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  max-width: 1920px;
+  padding-inline: 24px;
+}
+
+.code-container {
+  overflow: hidden;
+}
+
+.code-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.code-container span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: writeCode 1.2s linear forwards;
+  width: 0;
+}
+
+.code-container > span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.code-container > span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.code-container > span:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.code-container > span:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.code-container > span:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.code-container > span:nth-child(6) {
+  animation-delay: 5s;
+}
+
+@keyframes writeCode {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.hero-radial {
+  width: 340px;
+  height: 340px;
+  background: transparent;
+  filter: blur(60px);
+  z-index: -1;
+  border-radius: 50%;
+  position: absolute;
+}
+.hero-radial-left {
+  background: hsla(190, 100%, 50%, 0.21);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.hero-code {
+  box-shadow: 50px -300px 150px -180px hsla(260, 100%, 61%, 0.333);
+}/*# sourceMappingURL=index.css.map */
