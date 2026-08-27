@@ -3,5 +3,12 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-
+    <twig:Header/>
+    <main>
+      {% include 'home/hero/hero.html.twig' %}
+      {% include 'home/projects/projects.html.twig' %}
+      {% include 'home/about/about.html.twig' %}
+      {% include 'home/contacts/contacts.html.twig' %}
+    </main>
+    
 {% endblock %}
