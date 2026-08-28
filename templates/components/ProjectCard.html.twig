@@ -2,7 +2,7 @@
    {% set formattedPosition =  position < 10 and position > 1 ?  "0"  :  position  %}
    
    <li {{ attributes }}>
-        <article class="border border-card-light/10 bg-surface rounded-[30px] flex flex-col gap-6 pt-6 pl-6 pb-8 max-h-[250px] relative after:w-[130px] after:h-[130px] after:absolute after:right-1/5 after:top-4 after:rounded-full after:blur-2xl {{bgColor}}">
+        <article class="border border-card-light/10 bg-surface rounded-[30px] flex flex-col gap-6 pt-6 pl-6 pb-8 h-[250px] max-h-[250px] relative after:w-[130px] after:h-[130px] after:absolute after:right-1/5 after:top-4 after:rounded-full after:blur-2xl {{bgColor}}">
             <span class="{{textColor}} text-lg font-extrabold">
                 {% if position < 10 and position >= 1  %}
                     0{{ position}}
