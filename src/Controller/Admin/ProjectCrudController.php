@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Project;
 use DateTimeImmutable;
 use DateTimeZone;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -25,7 +26,6 @@ class ProjectCrudController extends AbstractCrudController
 
     public static function getEntityFqcn(): string
     {
-
         return Project::class;
     }
 
@@ -35,6 +35,21 @@ class ProjectCrudController extends AbstractCrudController
         $this->cache->delete("projects");
         return parent::createEntity($entityFqcn);
     }
+
+    #[Override]
+    public function deleteEntity(EntityManagerInterface $entityManager, object $entityInstance): void
+    {
+        $this->cache->delete("projects");
+        parent::deleteEntity($entityManager, $entityInstance);
+    }
+
+    #[Override]
+    public function updateEntity(EntityManagerInterface $entityManager, object $entityInstance): void
+    {
+        $this->cache->delete("projects");
+        parent::updateEntity($entityManager, $entityInstance);
+    }
+
 
     // public function configureFields(string $pageName): iterable
     // {
