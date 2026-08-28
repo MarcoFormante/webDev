@@ -11,24 +11,30 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Override;
+use Symfony\Contracts\Cache\CacheInterface;
 
 class ProjectCrudController extends AbstractCrudController
+
 {
+    private CacheInterface $cache;
+
+    public function __construct(CacheInterface $cache){
+        $this->cache = $cache;
+    }
+   
+
     public static function getEntityFqcn(): string
     {
 
         return Project::class;
     }
 
-    // #[Override]
-    // public function createEntity(string $entityFqcn): object
-    // {
-    //     $project = new Project();
-    //     $project->setUpdatedAt(new DateTimeImmutable("now"));
-    //     $project->setCreatedAt(new DateTimeImmutable("now"));
-        
-    //     return $project;
-    // }
+    #[Override]
+    public function createEntity(string $entityFqcn): object
+    {
+        $this->cache->delete("projects");
+        return parent::createEntity($entityFqcn);
+    }
 
     // public function configureFields(string $pageName): iterable
     // {
