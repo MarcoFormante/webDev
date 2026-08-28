@@ -1,0 +1,22 @@
+   
+   {% set formattedPosition =  position < 10 and position > 1 ?  "0"  :  position  %}
+   
+   <li {{ attributes }}>
+        <article class="border border-card-light/10 bg-surface rounded-[30px] flex flex-col gap-6 pt-6 pl-6 pb-8 max-h-[250px] relative after:w-[130px] after:h-[130px] after:absolute after:right-1/5 after:top-4 after:rounded-full after:blur-2xl {{bgColor}}">
+            <span class="{{textColor}} text-lg font-extrabold">
+                {% if position < 10 and position >= 1  %}
+                    0{{ position}}
+                    {% else %}
+                    {{position}}
+                {% endif %}
+            </span>
+            <h3 class="text-text text-[28px]">{{title}}</h3>
+            <div class="flex flex-col gap-3">
+                <span class="text-muted font-extrabold text-[13px]">{{stack}}</span>
+                <p class="text-muted-2 text-sm">{{description}}</p>
+            </div>
+            <a href={{slug}} target="_blank" aria-label="progetto {{title}}" class="rounded-full bg-text w-[44px] h-[44px] absolute grid place-items-center top-5 right-6 group">
+                <twig:ux:icon name="solar:arrow-right-up-linear" class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300  h-6 w-7" />
+            </a>
+        </article>
+    </li>
