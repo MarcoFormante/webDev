@@ -6,30 +6,37 @@ use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 final class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home', methods:["GET"])]
-    public function index(ProjectRepository $pr): Response
+    public function index(ProjectRepository $pr,TagAwareCacheInterface $cache): Response
     {
-        $projects = [];
-        $data = $pr->findBy(["isActive" => 1],["position" => "ASC"]);
-        if ($data) {
-            foreach ($data as $project) {
-                $projects[] = [
-                    "bgColor" => $project->getBgColor(),
-                    "textColor" => $project->getTextColor(),
-                    "slug" => $project->getSlug(),
-                    "description" => $project->getDescription(),
-                    "title" => $project->getTitle(),
-                    "stack" => $project->getStack(),
-                    "position" => $project->getPosition(),
-                ];
+        $cacheKey = "projects";
+        $data = $cache->get($cacheKey, function(ItemInterface $item) use ($pr){
+            $item->expiresAfter(86400);
+            $projects = [];
+            $entities = $pr->findBy(["isActive" => 1],["position" => "ASC"]);
+            if ($entities) {
+                foreach ($entities as $project) {
+                    $projects[] = [
+                        "bgColor" => $project->getBgColor(),
+                        "textColor" => $project->getTextColor(),
+                        "slug" => $project->getSlug(),
+                        "description" => $project->getDescription(),
+                        "title" => $project->getTitle(),
+                        "stack" => $project->getStack(),
+                        "position" => $project->getPosition(),
+                    ];
+                }
             }
-        }
+            
+        });
 
         return $this->render('home/index.html.twig', [
-            'projects' => $projects,
+            'projects' => $data,
         ]);
     }
 }
