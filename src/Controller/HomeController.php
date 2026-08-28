@@ -32,7 +32,7 @@ final class HomeController extends AbstractController
                     ];
                 }
             }
-            
+            return $projects;
         });
 
         return $this->render('home/index.html.twig', [
