@@ -3,22 +3,23 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<main class="flex justify-center">
+
     <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+      
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
+
+        <h1 class="text-text text-3xl font-black mt-20 text-center">LOGIN PAGE</h1>
+        <div class="flex flex-col gap-10 mt-20">
+            <div class="flex flex-col gap-2">
+                <label for="username" class="text-text">Email</label>
+                <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control border border-text rounded-full max-w-100 bg-text text-bg pl-3 py-2 focus:outline-cyan-500 outline-4" autocomplete="email" required autofocus>
             </div>
-        {% endif %}
-
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+            <div class="flex flex-col gap-2">
+                <label for="password" class="text-text">Password</label>
+                <input type="password" name="_password" id="password"  class="form-control border border-text rounded-full max-w-100 bg-text text-bg pl-3 py-2 focus:outline-cyan-500 outline-4" required>
+            </div>
+        </div>
         <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
         {#
@@ -31,8 +32,20 @@
             </div>
         #}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
+        {% if error %}
+            <div class="text-red-500 mt-3">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3 flex flex-col gap-2 justify-center items-center mt-5">
+                <a href="/admin/" class="text-purple text-center">Vai alla Dashboard</a>
+                <a href="{{ logout_path()}}" class="text-pink">Logout</a>
+            </div>
+        {% endif %}
+
+        <button class="text-text border border-text px-6 py-2 rounded-full cursor-pointer w-100 mt-20">
+            ACCEDI
         </button>
     </form>
+</main>
 {% endblock %}

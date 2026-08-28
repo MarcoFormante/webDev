@@ -100,7 +100,7 @@
         "symfony": {
             "allow-contrib": false,
             "require": "8.1.*",
-            "public-dir": "public_html"
+            "public-dir": "public"
         }
     },
     "require-dev": {

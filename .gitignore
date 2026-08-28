@@ -8,6 +8,7 @@
 /config/secrets/dev/dev.decrypt.private.php
 /public/bundles/
 /public_html
+/public
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
