@@ -47,6 +47,7 @@ class ProjectCrudController extends AbstractCrudController
     public function updateEntity(EntityManagerInterface $entityManager, object $entityInstance): void
     {
         $this->cache->delete("projects");
+        $this->cache->delete("home_hero_block");
         parent::updateEntity($entityManager, $entityInstance);
     }
 

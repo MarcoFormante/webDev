@@ -1,49 +1,9 @@
-{# 
-{% set projects = [
-    {
-        position:1,
-        title:"Dashboard Task Manager",
-        stack:"React · Zustand · Tailwind",
-        description:"SPA per organizzare task, filtri e stato completamento.",
-        slug:"dashboard",
-        bgColor:"after:bg-purple",
-        textColor:"text-purple",
-    },
-    {
-        position:2,
-        title:"Dashboard Task Manager",
-        stack:"React · Zustand · Tailwind",
-        description:"SPA per organizzare task, filtri e stato completamento.",
-        slug:"dashboard",
-        bgColor:"after:bg-pink",
-        textColor:"text-pink",
-    },
 
-    {
-        position:3,
-        title:"Dashboard Task Manager",
-        stack:"React · Zustand · Tailwind",
-        description:"SPA per organizzare task, filtri e stato completamento.",
-        slug:"dashboard",
-        bgColor:"after:bg-cyan",
-        textColor:"text-cyan",
-    },
-
-     {
-        position:4,
-        title:"Dashboard Task Manager",
-        stack:"React · Zustand · Tailwind",
-        description:"SPA per organizzare task, filtri e stato completamento.",
-        slug:"dashboard",
-        bgColor:"after:bg-green",
-        textColor:"text-green",
-    }
-] %} #}
 
 <section id="progetti" class="mt-20">
-        <h2 class="text-cyan font-black text-xs">PROGETTI</h2>
-        <p class="text-text font-extrabold text-[42px] mt-5">Lavori in Evidenza</p>
-        <ul class="grid grid-cols-2 gap-6 mt-10">
+        <h2 class="text-cyan font-black text-xs max-lg:text-center">PROGETTI</h2>
+        <p class="text-text font-extrabold text-[42px] mt-5  max-lg:text-center max-md:text-[clamp(18px,10vw,42px)]">Lavori in Evidenza</p>
+        <ul class="grid grid-cols-2 gap-10 mt-10 max-lg:grid-cols-1">
             {% for project in projects %}
                 <twig:ProjectCard {{...project}} />
             {% endfor %}

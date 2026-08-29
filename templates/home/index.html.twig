@@ -5,16 +5,16 @@
 {% block body %}
     <twig:Header/>
     <main>
-      {% cache 'home_hero_block' ttl(86400) %}
+      {# {% cache 'home_hero_block' ttl(0) %} #}
         {% include 'home/hero/hero.html.twig' %}
-      {% endcache %}
+      {# {% endcache %} #}
 
       {% include 'home/projects/projects.html.twig' %}
 
-      {% cache 'home_static_info_block' ttl(86400) %}
+      {# {% cache 'home_static_info_block' ttl(86400) %} #}
           {% include 'home/about/about.html.twig' %}
           {% include 'home/contacts/contacts.html.twig' %}
-      {% endcache %}
+      {# {% endcache %} #}
     </main>
     
 {% endblock %}
