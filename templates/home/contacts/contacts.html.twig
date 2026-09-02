@@ -1,7 +1,9 @@
- <section id="contatti" class="mt-20 bg-surface-2 flex flex-col gap-4 max-lg:py-0 pb-15">
-        <h2 class="text-cyan font-black text-xs text-center">PRONTO A COLLABORARE</h2>
-        <h3 class="text-text text-[clamp(18px,10vw,54px)] font-extrabold text-center">Hai bisogno di un developer ?</h3>
-        <span class="text-lg text-muted text-center font-bold">Contattami!</span>
+ {% trans_default_domain 'site' %}
+ 
+ <section id="contacts" class="mt-20 bg-surface-2 flex flex-col gap-4 max-lg:py-0 pb-15">
+        <h2 class="text-cyan font-black text-xs text-center">{{'contacts.h2'|trans}}</h2>
+        <h3 class="text-text text-[clamp(18px,10vw,54px)] font-extrabold text-center">{{'contacts.h3'|trans}}</h3>
+        <span class="text-lg text-muted text-center font-bold">{{'contacts.span'|trans}}</span>
         <div class="flex justify-center items-center mt-5 gap-3.5 max-lg:flex-col max-lg:gap-6">
             <a href="mailto:formante.marco@gmai.com" class="hover:-skew-2 px-5 py-[15px] h-14 transition-all duration-300 text-bg text-[15px] bg-text flex items-center w-max rounded-[18px] gap-2.5 font-black">
                  formante.marco@gmail.com <twig:ux:icon name="formkit:email" class=" w-7 h-5" />

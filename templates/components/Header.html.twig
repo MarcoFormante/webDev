@@ -1,4 +1,4 @@
-
+{% trans_default_domain 'site' %}
 
      <header class="bg-bg w-full py-7 relative z-10" {{ attributes }}>
         <nav class="flex justify-between items-center h-full max-lg:flex-col max-lg:gap-4 ">
@@ -11,28 +11,28 @@
 
                 {% set homeLinks = [
                     {
-                        href:"#progetti",
-                        name:"Progetti"
+                        href:"#projects",
+                        name:"nav.projects"|trans
                     },
                     {
                         href:"#skills",
                         name:"Skills",
                     },
                     {
-                        href:"#contatti",
-                        name:"Contatti",
+                        href:"#contacts",
+                        name:"nav.contacts"|trans,
                     }
                 ]%}
 
                 <ul class="flex gap-4 ">
                     {% for link in homeLinks %}
-                        <li key="navItem-{{ link.name}}" class='hover:-translate-y-0.5 transition-transform duration-300'>
-                        <a 
-                        href={{link.href}} 
-                        class="text-muted block relative transition-all duration-300   hover:text-text after:content-[''] after:w-0 after:h-full after:border-b after:border-b-text after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-300"
-                        >
-                        {{link.name}}
-                        </a>
+                        <li class='hover:-translate-y-0.5 transition-transform duration-300'>
+                            <a 
+                                href="#{{link.name|lower}}"
+                                class="text-muted block relative transition-all duration-300 capitalize hover:text-text after:content-[''] after:w-0 after:h-full after:border-b after:border-b-text after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-300"
+                                >
+                              {{link.name}}
+                            </a>
                     </li>
                 {% endfor %}
                  </ul>

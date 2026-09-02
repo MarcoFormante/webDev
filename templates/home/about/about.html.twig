@@ -1,4 +1,6 @@
- {% set stackArray =  [
+{% trans_default_domain 'site' %}
+
+{% set stackArray =  [
     "HTML",
     "CSS",
     "Javascript",
@@ -20,8 +22,8 @@
    
  
  <section class="mt-20" id="skills">
-        <h2 class="text-cyan font-black text-xs max-lg:text-center">PROFILO</h2>
-        <p class="text-text font-extrabold text-[42px] mt-5 max-lg:text-center max-md:text-[clamp(18px,10vw,42px)] ">DIETRO IL CODICE</p>
+        <h2 class="text-cyan font-black text-xs max-lg:text-center">{{'about.h2'|trans}}</h2>
+        <p class="text-text font-extrabold text-[42px] mt-5 max-lg:text-center max-md:text-[clamp(18px,10vw,42px)] ">{{'about.subtitle'|trans}}</p>
         <div class="flex gap-10 h-full items-stretch max-lg:flex-col mt-10">
             <div class="p-[30px] px-10 bg-card-light flex flex-col gap-4 rounded-[34px] h-full w-full flex-2 max-md:px-4">
                 <div class="flex items-center gap-3"> 
@@ -31,20 +33,17 @@
                         class="w-20 h-20 rounded-full object-cover shrink-0  transition-all duration-300 hover:scale-320 cursor-zoom-in"
                         loading="lazy"
                     /> 
-                    <h2 class="text-bg font-extrabold text-[34px]">Chi sono</h2> 
+                    <h3 class="text-bg font-extrabold text-[34px]">{{'about.h3'|trans}}</h3> 
                 </div>
                 
-                <p class="text-light-text max-md:text-[14px] ">Sono uno sviluppatore web specializzato nella creazione di interfacce veloci, accessibili e curate nei dettagli. Utilizzo prevalentemente <strong>React</strong>, <strong>Next.js</strong> e <strong>Tailwind CSS</strong> per sviluppare interfacce utente moderne e responsive.
-                    A una forte predisposizione per il Frontend affianco competenze lato server in <strong>PHP/Symfony</strong>, che mi permettono di comprendere l'intera architettura dell'applicazione, integrare <strong>API REST</strong> e gestire l'interazione con i database.
-                    Cura del codice, attenzione all'esperienza utente e rispetto dei requisiti di accessibilità sono i principi alla base di ogni progetto che realizzo.
-                </p>   
+                <p class="text-light-text max-md:text-[14px] ">{{'about.desc'|trans|raw}}</p>   
             </div>
 
             <div class="p-[30px] px-10 bg-surface flex flex-col gap-4  rounded-[34px] h-stretch w-full flex-2 border border-text/10 max-md:px-4">
-                <h2 class="text-text text-[34px] font-extrabold">Skill principali</h2>
+                <h2 class="text-text text-[34px] font-extrabold">{{'skills.h2'|trans}}</h2>
                 <ul class="flex w-4/5 flex-wrap gap-4 max-sm:w-full max-sm:text-[14px] max-sm:gap-2">
                     {% for stackItem in stackArray %}
-                        <li class="w-max px-3.5 py-[11px] text-text-soft text-[13px] rounded-[999px] border border-text/8 bg-text/7  min-w-[47px]">
+                        <li class="w-max px-3.5 py-[11px] text-text-soft text-[13px] rounded-[999px] border border-text/8 bg-text/7 min-w-[47px]">
                            {{stackItem}}
                         </li>
                     {% endfor %}

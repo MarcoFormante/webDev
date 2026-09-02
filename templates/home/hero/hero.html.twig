@@ -1,25 +1,27 @@
+{% trans_default_domain 'site' %}
+
 <section class="flex gap-20 max-lg:gap-10 mt-10 hero max-lg:flex-col max-lg:justify-center">
             <div class="max-w-1/2 flex flex-col gap-10 max-md:gap-6 relative z-1 max-lg:justify-center max-lg:max-w-none max-lg:items-center max-lg:text-center">
                 <div class="px-3.5 py-2.5 flex gap-2.5 items-center rounded-full bg-card-light/7  border border-card-light/12 min-lg:w-max"> 
                     <span aria-hidden="true" class="bg-green w-2 h-2 min-w-2 min-h-2 block rounded-full opacity-75 animate-ping "></span>
-                    <p class="text-text text-sm font-bold ">Disponibile per progetti e posizioni Full-Stack / Frontend </p>
+                    <p class="text-text text-sm font-bold">{{'hero.openToWork'|trans}}</p>
                 </div>
-                <h1 class="text-text text-[clamp(18px,10vw,68px)] font-extrabold leading-19 max-[400px]:leading-12">Creo interfacce <br/> web pulite,<br/> responsive e facili <br/> da usare.</h1>
-                <p class="text-muted text-lg w-[80%] min-w-[517px] max-lg:min-w-full max-md:text-[16px]">Sviluppo applicazioni web moderne, veloci e performanti. Focalizzato sull'ecosistema Frontend con React e Next.js, affianco una solida comprensione del Backend per la creazione di API e gestione dati con Node.js, PHP e Symfony.</p>
+                <h1 class="text-text text-[clamp(18px,10vw,68px)] font-extrabold leading-19 max-[400px]:leading-12">{{'hero.h1'|trans|raw}}</h1>
+                <p class="text-muted text-lg w-[80%] min-w-[517px] max-lg:min-w-full max-md:text-[16px]">{{'hero.desc'|trans}}</p>
                 <div class="flex items-center gap-3.5 max-md:flex-col max-md:gap-10">
                     <a
-                        href="#contatti" 
+                        href="#contacts" 
                         class="h-14 flex items-center gap-2.5 w-max font-extrabold text-text transition-all duration-300 hover:rotate-x-20  py-4 px-5.5  rounded-[18px] bg-gradient-primary drop-shadow-2xl drop-shadow-cyan/40"
                     >
-                        Contattami 
+                        {{'hero.contactButton'|trans}} 
                     </a>
 
                     <a 
-                        href="/#progetti" 
+                        href="/#projects" 
                         class="h-14 font-extrabold text-text flex justify-center items-center gap-2.5 py-4 px-5.5 transition-all duration-300 hover:rotate-x-20 rounded-[18px] w-max bg-text/5 border border-text/12"
                        
                     >
-                        Vedi progetti <twig:ux:icon name="formkit:arrowdown" class="relative bottom-1 h-10 w-3  "/>
+                        {{'hero.buttonProjects'|trans}} <twig:ux:icon name="formkit:arrowdown" class="relative bottom-1 h-10 w-3  "/>
                     </a>
 
                     <a 
