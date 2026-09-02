@@ -11,8 +11,14 @@ use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home', methods:["GET"])]
-    public function index(ProjectRepository $pr,TagAwareCacheInterface $cache): Response
+    #[Route('/', name: 'app_home_redirect', methods:["GET"])]
+    public function index(): Response
+    {
+        return $this->redirectToRoute("app_home",['_locale'=>'it'],301);
+    }
+
+    #[Route('/{_locale}/', name: 'app_home', methods:["GET"],requirements:['_locale' => 'it|fr|en'])]
+    public function localeHome(ProjectRepository $pr,TagAwareCacheInterface $cache):Response
     {
         $cacheKey = "projects";
         $data = $cache->get($cacheKey, function(ItemInterface $item) use ($pr){
