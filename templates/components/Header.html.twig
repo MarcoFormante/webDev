@@ -1,4 +1,20 @@
 {% trans_default_domain 'site' %}
+{% set lang = app.request.locale|default('it') %}
+{% set homeLinks = [
+    {
+        href: "#projects",
+        name: "nav.projects"|trans
+    },
+    {
+        href: "#skills",
+        name: "skills"
+    },
+    {
+        href: "#contacts",
+        name: "nav.contacts"|trans
+    }
+] %}
+
 
      <header class="bg-bg w-full py-7 relative z-10" {{ attributes }}>
         <nav class="flex justify-between items-center h-full max-lg:flex-col max-lg:gap-4 ">
@@ -6,24 +22,8 @@
                 <abbr title="Marco Formante" class="w-10 h-10 font-bold tracking-wider bg-linear-240 from-purple to-cyan rounded-xl grid place-items-center no-underline ">MF</abbr>
                 <span class='text-text font-bold'>Web.Dev</span>
             </a>
-
-            {% if route == "app_home" %}
-
-                {% set homeLinks = [
-                    {
-                        href:"#projects",
-                        name:"nav.projects"|trans
-                    },
-                    {
-                        href:"#skills",
-                        name:"Skills",
-                    },
-                    {
-                        href:"#contacts",
-                        name:"nav.contacts"|trans,
-                    }
-                ]%}
-
+           
+            <div class="flex gap-10 max-lg:flex-col justify-center items-center ">
                 <ul class="flex gap-4 ">
                     {% for link in homeLinks %}
                         <li class='hover:-translate-y-0.5 transition-transform duration-300'>
@@ -31,11 +31,20 @@
                                 href="#{{link.name|lower}}"
                                 class="text-muted block relative transition-all duration-300 capitalize hover:text-text after:content-[''] after:w-0 after:h-full after:border-b after:border-b-text after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-300"
                                 >
-                              {{link.name}}
+                            {{link.name}}
                             </a>
-                    </li>
-                {% endfor %}
-                 </ul>
-            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <details class="text-text max-lg:pb-2 cursor-pointer max-lg:absolute max-lg:top-9 max-lg:right-0 px-2">
+                    <summary class="text-cyan">{{lang|upper}}</summary>
+                    <div class="absolute flex flex-col justify-center bg-bg">
+                        <a href="{{path('app_home', {'_locale': 'it'}) }}" class="px-1 {{lang == 'it' ? "bg-cyan text-text font-bold" : ""}}">IT</a>
+                        <a href="{{ path('app_home', {'_locale': 'fr'}) }}" class="px-1 {{lang == 'fr' ? "bg-cyan text-text font-bold" : ""}}">FR</a>
+                        <a href="{{ path('app_home', {'_locale': 'en'}) }}" class="px-1 {{lang == 'en' ? "bg-cyan text-text font-bold" : ""}}">EN</a>
+                    </div>
+                </details>
+            </div>
+           
         </nav>
     </header>
