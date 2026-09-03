@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DisableAutoMapping;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 class Project
@@ -14,10 +16,7 @@ class Project
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $bg_color = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $textColor = null;
+    private ?string $color = null;
 
     #[ORM\Column]
     private ?int $position = null;
@@ -29,7 +28,13 @@ class Project
     private ?string $stack = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private ?string $descriptionIT = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $descriptionFR = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $descriptionEN = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
@@ -48,29 +53,18 @@ class Project
         return $this->id;
     }
 
-    public function getBgColor(): ?string
+    public function getColor(): ?string
     {
-        return $this->bg_color;
+        return $this->color;
     }
 
-    public function setBgColor(string $bg_color): static
+    public function setColor(string $color): static
     {
-        $this->bg_color = $bg_color;
+        $this->color = $color;
 
         return $this;
     }
 
-    public function getTextColor(): ?string
-    {
-        return $this->textColor;
-    }
-
-    public function setTextColor(string $textColor): static
-    {
-        $this->textColor = $textColor;
-
-        return $this;
-    }
 
     public function getPosition(): ?int
     {
@@ -108,17 +102,50 @@ class Project
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescriptionIT(): ?string
     {
-        return $this->description;
+        return $this->descriptionIT;
     }
 
-    public function setDescription(string $description): static
+    
+
+    public function setDescriptionIT(string $descriptionIT): static
     {
-        $this->description = $description;
+        $this->descriptionIT = $descriptionIT;
 
         return $this;
     }
+
+
+    public function getDescriptionFR(): ?string
+    {
+        return $this->descriptionFR;
+    }
+
+    
+
+    public function setDescriptionFR(string $descriptionFR): static
+    {
+        $this->descriptionFR = $descriptionFR;
+
+        return $this;
+    }
+
+
+    public function getDescriptionEN(): ?string
+    {
+        return $this->descriptionEN;
+    }
+
+    
+
+    public function setDescriptionEN(string $descriptionEN): static
+    {
+        $this->descriptionEN = $descriptionEN;
+
+        return $this;
+    }
+
 
     public function getSlug(): ?string
     {
@@ -132,12 +159,37 @@ class Project
         return $this;
     }
 
+    #[DisableAutoMapping]
+    public function getDescription(string $_locale){
+        $description = $this->getDescriptionIT();
+        switch ($_locale) {
+            case 'it':
+                $description = $this->descriptionIT;
+                break;
+
+            case 'fr':
+                $description = $this->descriptionFR;
+                break;
+
+
+            case 'en':  
+                $description = $this->descriptionEN;
+                break;
+
+            
+            default:
+                $description = $this->descriptionIT;
+                break;
+        }
+        return $description;
+    }
+
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setCreatedAt(DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
 
@@ -149,9 +201,9 @@ class Project
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    public function setUpdatedAt(DateTimeImmutable $createdAt): static
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = $createdAt;
 
         return $this;
     }
