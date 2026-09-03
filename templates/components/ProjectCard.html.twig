@@ -2,9 +2,8 @@
    {% set formattedPosition =  position < 10 and position > 1 ?  "0"  :  position  %}
    
    <li {{ attributes }}>
-        <article class="border border-card-light/10 bg-surface rounded-[30px] flex flex-col gap-6 pt-6 pl-6 pb-8 h-[250px] max-h-[250px] max-[400px]:gap-4 max-[450px]:p-3 relative after:w-[130px] after:h-[130px] after:absolute after:right-1/5 after:top-4 max-sm:after:right-1 max-sm:after:top-0 after:rounded-full after:blur-2xl {{bgColor}} max-md:after:opacity-50 ">
-            <span class="{{textColor}} text-lg font-extrabold">
-                
+        <article style="--project-color: {{color}}" class="project-card border border-card-light/10 bg-surface rounded-[30px] flex flex-col gap-6 pt-6 pl-6 pb-8 h-[250px] max-h-[250px] max-[400px]:gap-4 max-[450px]:p-3 relative after:w-[130px] after:h-[130px] after:absolute after:right-1/5 after:top-4 max-sm:after:right-1 max-sm:after:top-0 after:rounded-full after:blur-2xl  max-md:after:opacity-50 ">
+            <span class="project-card-position text-lg font-extrabold">
                 {% if position < 10 and position >= 1  %}
                     0{{ position}}
                     {% else %}
@@ -16,7 +15,7 @@
                 <span class="text-muted font-extrabold text-[13px]">{{stack}}</span>
                 <p class="text-muted-2 text-sm">{{description}}</p>
             </div>
-            <a href="{{slug}}" target="_blank" rel="noopener" aria-label="progetto {{title}}" class="rounded-full bg-text w-[44px] h-[44px] absolute grid place-items-center top-4 right-10 group  max-sm:w-8 max-sm:h-8 max-sm:right-3">
+            <a href="{{slug}}" target="{{slug == '#this' ? null : '_blank'}}" rel="noopener" aria-label="progetto {{title}}" class="rounded-full bg-text w-[44px] h-[44px] absolute grid place-items-center top-4 right-10 group  max-sm:w-8 max-sm:h-8 max-sm:right-3">
                 <twig:ux:icon name="solar:arrow-right-up-linear" class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300 h-6 w-7" />
             </a>
         </article>
