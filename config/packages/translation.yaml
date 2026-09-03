@@ -3,5 +3,5 @@ framework:
     enabled_locales: ['it','en', 'fr']
     translator:
         default_path: '%kernel.project_dir%/translations'
-        fallback: ['en']
+        fallback: ['it']
         providers:
