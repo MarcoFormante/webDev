@@ -10,8 +10,8 @@
         name: "skills"
     },
     {
-        href: "#contacts",
-        name: "nav.contacts"|trans
+        href: "#contact",
+        name: "nav.contact"|trans
     }
 ] %}
 
@@ -28,7 +28,7 @@
                     {% for link in homeLinks %}
                         <li class='hover:-translate-y-0.5 transition-transform duration-300'>
                             <a 
-                                href="#{{link.name|lower}}"
+                                href="{{link.href|lower}}"
                                 class="text-muted block relative transition-all duration-300 capitalize hover:text-text after:content-[''] after:w-0 after:h-full after:border-b after:border-b-text after:absolute after:left-0 after:top-0 hover:after:w-full after:transition-all after:duration-300"
                                 >
                             {{link.name}}
