@@ -92,4 +92,14 @@ html {
 
 .hero-code {
   box-shadow: 50px -300px 150px -180px hsla(260, 100%, 61%, 0.333);
+}
+
+.project-card {
+  --project-color: cyan;
+}
+.project-card::after {
+  background-color: var(--project-color);
+}
+.project-card .project-card-position {
+  color: var(--project-color);
 }/*# sourceMappingURL=index.css.map */
