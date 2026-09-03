@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error{% endblock %}
+
+{% block body %}
+<style>
+
+h1 {
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+}
+p {
+  display: block;
+  margin: 25px auto;
+  max-width: 776px;
+  text-align: center;
+  color: #bcecf2;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.bl_page404__wrapper {
+  position: relative;
+  width: 100%;
+  margin: 10px auto 10px;
+  max-width: 440px;
+  min-height: 410px;
+
+}
+.bl_page404__img {
+  width: 100%;
+}
+.bl_page404__link {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 64px;
+  box-shadow: 0 5px 0 purple, inset 0 0 18px cyan;
+  background: linear-gradient(90deg, #7C3AFF, #00D4FF);
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 64px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  text-align: center;
+}
+
+</style>
+
+<main class="bl_page404 flex flex-col mt-10 gap-5">
+    <h1>Error 404. The page does not exist</h1>
+    <p>Sorry! The page you are looking for can not be found. Go to the main page.
+    </p>
+    <div class="bl_page404__wrapper">
+        <a class="bl_page404__link" href="/">go home</a>
+    </div>
+</main>
+{% endblock %}
