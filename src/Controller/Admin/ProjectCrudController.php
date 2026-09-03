@@ -29,26 +29,49 @@ class ProjectCrudController extends AbstractCrudController
         return Project::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+{
+    return $crud
+    ->setSearchFields(['title'])
+    ->setTimezone('Europe/Rome')
+    ->setHideFormFields(['updatedAt','createdAt'])
+    ;
+}
+
     #[Override]
     public function createEntity(string $entityFqcn): object
     {
-        $this->cache->delete("projects");
-        return parent::createEntity($entityFqcn);
+        $this->cache->delete("projects_it");
+        $this->cache->delete("projects_fr");
+        $this->cache->delete("projects_en");
+
+        $entity = parent::createEntity($entityFqcn);
+        $timezone = new \DateTimeZone('Europe/Rome');
+        $entity->setCreatedAt(new DateTimeImmutable('now',$timezone));
+        $entity->setUpdatedAt(new DateTimeImmutable('now',$timezone));
+        return $entity;
     }
 
     #[Override]
     public function deleteEntity(EntityManagerInterface $entityManager, object $entityInstance): void
     {
-        $this->cache->delete("projects");
+        $this->cache->delete("projects_it");
+        $this->cache->delete("projects_fr");
+        $this->cache->delete("projects_en");
         parent::deleteEntity($entityManager, $entityInstance);
     }
 
     #[Override]
     public function updateEntity(EntityManagerInterface $entityManager, object $entityInstance): void
     {
-        $this->cache->delete("projects");
-        $this->cache->delete("home_hero_block");
+        $this->cache->delete("projects_it");
+        $this->cache->delete("projects_fr");
+        $this->cache->delete("projects_en");
+        $timezone = new \DateTimeZone('Europe/Rome');
+        $entityInstance->setUpdatedAt(new DateTimeImmutable('now',$timezone));
         parent::updateEntity($entityManager, $entityInstance);
+        
+        
     }
 
 
