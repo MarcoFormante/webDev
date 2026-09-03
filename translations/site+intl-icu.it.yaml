@@ -1,5 +1,5 @@
 nav.projects: progetti
-nav.contacts: contatti
+nav.contact: contatti
 hero.openToWork: 'Disponibile per posizioni Full-Stack / Frontend'
 hero.h1: 'Creo interfacce <br/> web pulite,<br/> responsive e facili <br/> da usare.'
 hero.desc: "Sviluppo applicazioni web moderne, veloci e performanti. Focalizzato sull'ecosistema Frontend con React e Next.js, affianco una solida comprensione del Backend per la creazione di API e gestione dati con Node.js, PHP e Symfony."
@@ -12,8 +12,8 @@ about.subtitle: DIETRO IL CODICE
 about.h3: Chi sono
 about.desc: "Sono uno sviluppatore web specializzato nella creazione di interfacce veloci, accessibili e curate nei dettagli. Utilizzo prevalentemente <strong> React </strong>, <strong> Next.js </strong> e <strong> Tailwind CSS </strong> per sviluppare interfacce utente moderne e responsive. A una forte predisposizione per il Frontend affianco competenze lato server in <strong>PHP/Symfony</strong>, che mi permettono di comprendere l''intera architettura dell''applicazione, integrare <strong> API REST </strong> e gestire l'interazione con i database. Cura del codice, attenzione all''esperienza utente e rispetto dei requisiti di accessibilità sono i principi alla base di ogni progetto che realizzo."
 skills.h2: Skill principali
-contacts.h2: PRONTO A COLLABORARE
-contacts.h3: Hai bisogno di un developer ?
-contacts.span: Contattami!
+contact.h2: PRONTO A COLLABORARE
+contact.h3: Hai bisogno di un developer ?
+contact.span: Contattami!
 meta.title: Marco Formante — Sviluppatore Web Full-Stack
 meta.desc: "Portfolio di Marco Formante, sviluppatore web specializzato nella creazione di interfacce moderne, veloci e responsive con React e Symfony."

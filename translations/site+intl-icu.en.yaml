@@ -1,13 +1,13 @@
 nav.projects: Projects
-nav.contacts: Contacts
+nav.contact: Contact
 about.h2: PROFILE
 about.subtitle: 'BEHIND THE CODE'
 about.h3: 'Who I am'
 about.desc: 'I am a web developer specialized in creating fast, accessible, and carefully crafted interfaces. I mainly use <strong> React </strong>, <strong> Next.js </strong>, and <strong> Tailwind CSS </strong> to build modern, responsive user interfaces. Alongside a strong Frontend focus, I also bring server-side experience in <strong>PHP/Symfony</strong>, which allows me to understand the full application architecture, integrate <strong> REST APIs </strong>, and manage database interactions. Clean code, attention to user experience, and respect for accessibility requirements are the principles behind every project I build.'
 skills.h2: 'Core skills'
-contacts.h2: 'READY TO COLLABORATE'
-contacts.h3: 'Need a developer?'
-contacts.span: 'Let’s talk!'
+contact.h2: 'READY TO COLLABORATE'
+contact.h3: 'Need a developer?'
+contact.span: 'Let’s talk!'
 hero.openToWork: 'Available for Full-Stack / Frontend roles'
 hero.h1: 'I build clean,<br/> responsive web<br/> interfaces that are<br/> easy to use.'
 hero.desc: 'I develop modern, fast, and high-performing web applications. I focus on the Frontend ecosystem with React and Next.js, while also having a solid understanding of the Backend to build APIs and manage data with Node.js, PHP, and Symfony.'
