@@ -18,20 +18,19 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/{_locale}/', name: 'app_home', methods:["GET"],requirements:['_locale' => 'it|fr|en'])]
-    public function localeHome(ProjectRepository $pr,TagAwareCacheInterface $cache):Response
+    public function localeHome(ProjectRepository $pr,TagAwareCacheInterface $cache,string $_locale):Response
     {
-        $cacheKey = "projects";
-        $data = $cache->get($cacheKey, function(ItemInterface $item) use ($pr){
+        $cacheKey = "projects_$_locale";
+        $data = $cache->get($cacheKey, function(ItemInterface $item) use ($_locale, $pr){
             $item->expiresAfter(86400);
             $projects = [];
             $entities = $pr->findBy(["isActive" => 1],["position" => "ASC"]);
             if ($entities) {
                 foreach ($entities as $project) {
                     $projects[] = [
-                        "bgColor" => $project->getBgColor(),
-                        "textColor" => $project->getTextColor(),
+                        "color" => $project->getColor(),
                         "slug" => $project->getSlug(),
-                        "description" => $project->getDescription(),
+                        "description" =>  $project->getDescription($_locale),
                         "title" => $project->getTitle(),
                         "stack" => $project->getStack(),
                         "position" => $project->getPosition(),
