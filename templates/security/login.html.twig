@@ -4,11 +4,7 @@
 
 {% block body %}
 <main class="flex justify-center">
-
     <form method="post">
-      
-
-
         <h1 class="text-text text-3xl font-black mt-20 text-center">LOGIN PAGE</h1>
         <div class="flex flex-col gap-10 mt-20">
             <div class="flex flex-col gap-2">
@@ -21,16 +17,6 @@
             </div>
         </div>
         <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
-
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
 
         {% if error %}
             <div class="text-red-500 mt-3">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
