@@ -1,4 +1,5 @@
 <?php
+
 namespace App\EventListener;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -8,20 +9,29 @@ use Twig\Environment;
 
 class ExceptionListener
 {
-    public function __construct(private Environment $twig){}
+    public function __construct(private Environment $twig)
+    {
+    }
 
-    public function __invoke(ExceptionEvent $event)
+    public function __invoke(ExceptionEvent $event): void
     {
         $exception = $event->getThrowable();
-        $status_code = $exception instanceof HttpExceptionInterface
+        $statusCode = $exception instanceof HttpExceptionInterface
         ? $exception->getStatusCode()
         : 500;
-      
-        $pageToRender = $status_code === 404 ? "404" : "index";
-        $response = new Response($this->twig->render("error/$pageToRender.html.twig",[
-            'status_code' => $status_code
-        ]),$status_code);
-       
+
+        if (!\in_array($statusCode, [404, 500], true)) {
+            return;
+        }
+
+        $pageToRender = 404 === $statusCode ? '404' : 'index';
+        $response = new Response(
+            $this->twig->render("error/$pageToRender.html.twig", [
+                'status_code' => $statusCode,
+            ]),
+            $statusCode
+        );
+
         $event->setResponse($response);
     }
 }
