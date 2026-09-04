@@ -9,12 +9,14 @@
 /public/bundles/
 /public_html
 /public/*
+!/public/.htaccess
 !/public/robots.txt
 !/public/sitemap.xml
 !/public/index.php
 !/public/favicon.svg
 /var/
 /vendor/
+
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
