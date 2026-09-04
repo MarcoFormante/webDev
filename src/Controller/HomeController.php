@@ -17,7 +17,7 @@ final class HomeController extends AbstractController
         return $this->redirectToRoute("app_home",['_locale'=>'it'],301);
     }
 
-    #[Route('/{_locale}/', name: 'app_home', methods:["GET"],requirements:['_locale' => 'it|fr|en'])]
+    #[Route('/{_locale}', name: 'app_home', methods:["GET"],requirements:['_locale' => 'it|fr|en'])]
     public function localeHome(ProjectRepository $pr,TagAwareCacheInterface $cache,string $_locale):Response
     {
         $cacheKey = "projects_$_locale";
