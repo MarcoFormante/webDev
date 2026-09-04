@@ -18,7 +18,7 @@
 
      <header class="bg-bg w-full py-7 relative z-10" {{ attributes }}>
         <nav class="flex justify-between items-center h-full max-lg:flex-col max-lg:gap-4 ">
-            <a href="/{{app.request.locale}}" class="text-text flex items-center gap-3">
+            <a href="{{ path('app_home')}}" class="text-text flex items-center gap-3">
                 <abbr title="Marco Formante" class="w-10 h-10 font-bold tracking-wider bg-linear-240 from-purple to-cyan rounded-xl grid place-items-center no-underline ">MF</abbr>
                 <span class='text-text font-bold'>Web.Dev</span>
             </a>
@@ -36,15 +36,24 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <details class="text-text max-lg:pb-2 cursor-pointer max-lg:absolute max-lg:top-9 max-lg:right-0 px-2">
+                <details class="text-text max-lg:pb-2 cursor-pointer max-lg:absolute max-lg:top-9 max-lg:right-0 px-2" id="details" aria-expanded="false">
                     <summary class="text-cyan">{{lang|upper}}</summary>
                     <div class="absolute flex flex-col justify-center bg-bg">
-                        <a href="{{path('app_home', {'_locale': 'it'}) }}" class="px-1 {{lang == 'it' ? "bg-cyan text-text font-bold" : ""}}">IT</a>
-                        <a href="{{ path('app_home', {'_locale': 'fr'}) }}" class="px-1 {{lang == 'fr' ? "bg-cyan text-text font-bold" : ""}}">FR</a>
-                        <a href="{{ path('app_home', {'_locale': 'en'}) }}" class="px-1 {{lang == 'en' ? "bg-cyan text-text font-bold" : ""}}">EN</a>
+                        <a href="{{path('app_home', {'_locale': 'it'}) }}" class="px-1 {{lang == 'it' ? "bg-cyan text-bg font-bold" : ""}}">IT</a>
+                        <a href="{{ path('app_home', {'_locale': 'fr'}) }}" class="px-1 {{lang == 'fr' ? "bg-cyan text-bg font-bold" : ""}}">FR</a>
+                        <a href="{{ path('app_home', {'_locale': 'en'}) }}" class="px-1 {{lang == 'en' ? "bg-cyan text-bg font-bold" : ""}}">EN</a>
                     </div>
                 </details>
             </div>
            
         </nav>
     </header>
+    <script>
+        const details = document.querySelector('#details');
+
+        if (details) {
+            details.addEventListener('toggle', () => {
+                details.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+            });
+        }
+    </script>
