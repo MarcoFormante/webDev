@@ -1,16 +1,39 @@
 {% trans_default_domain 'site' %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale|default('it') }}">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="{{'meta.desc'|trans}}"/>
-        <title>{% block title %}{{ 'meta.title'|trans }} {% endblock title %}</title>
-        <link rel="canonical" href="{{ url('app_home', {'_locale': app.request.locale}) }}" />
-        <link rel="alternate" hreflang="it" href="{{ url('app_home', {'_locale': 'it'}) }}" />
-        <link rel="alternate" hreflang="fr" href="{{ url('app_home', {'_locale': 'fr'}) }}" />
-        <link rel="alternate" hreflang="en" href="{{ url('app_home', {'_locale': 'en'}) }}" />
-        <link rel="alternate" hreflang="x-default" href="{{ url('app_home', {'_locale': 'en'}) }}" />
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{{ 'meta.desc'|trans|e }}">
+        <meta name="robots" content="index, follow">
+        <title>{% block title %}{{ 'meta.title'|trans }}{% endblock title %}</title>
+        <link rel="canonical" href="{{ url('app_home', {'_locale': app.request.locale|default('it')}) }}">
+        <link rel="alternate" hreflang="it" href="{{ url('app_home', {'_locale': 'it'}) }}">
+        <link rel="alternate" hreflang="fr" href="{{ url('app_home', {'_locale': 'fr'}) }}">
+        <link rel="alternate" hreflang="en" href="{{ url('app_home', {'_locale': 'en'}) }}">
+        <link rel="alternate" hreflang="x-default" href="{{ url('app_home', {'_locale': 'it'}) }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="og:title" content="{{ 'meta.title'|trans|e }}">
+        <meta property="og:description" content="{{ 'meta.desc'|trans|e }}">
+        <meta property="og:image" content="{{ absolute_url(asset('images/me.webp')) }}">
+        <meta property="og:locale" content="{{ app.request.locale|default('it') }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ 'meta.title'|trans|e }}">
+        <meta name="twitter:description" content="{{ 'meta.desc'|trans|e }}">
+        <meta name="twitter:image" content="{{ absolute_url(asset('images/me.webp')) }}">
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Marco Formante",
+                "jobTitle": "Full-Stack Web Developer",
+                "url": {{ app.request.uri|json_encode|raw }},
+                "image": {{ absolute_url(asset('images/me.webp'))|json_encode|raw }},
+                "sameAs": ["https://github.com/MarcoFormante/"]
+            }
+        </script>
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
         {% block stylesheets %}
         {% endblock %}
 
