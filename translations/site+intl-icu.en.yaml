@@ -15,5 +15,6 @@ hero.contactButton: 'Contact me'
 hero.buttonProjects: 'See projects'
 projects.h2: PROJECTS
 projects.sectionDesc: 'Featured work'
+project.ariaLabel: Project 
 meta.title: 'Marco Formante — Full-Stack & Frontend'
 meta.desc: 'Portfolio of Marco Formante, web developer specializing in building modern, fast, and responsive web applications with React and Symfony.'

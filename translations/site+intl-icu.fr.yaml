@@ -15,5 +15,6 @@ hero.contactButton: "Contactez-moi"
 hero.buttonProjects: "Voir les projets"
 projects.h2: "PROJETS"
 projects.sectionDesc: "Projets en vedette"
+project.ariaLabel: Projet
 meta.title: Marco Formante — Développeur Web Full-Stack
 meta.desc: Portfolio de Marco Formante, développeur web spécialisé dans la création d'interfaces modernes, rapides et réactives avec React et Symfony.

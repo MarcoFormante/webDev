@@ -7,6 +7,7 @@ hero.contactButton: Contattami
 hero.buttonProjects: Vedi Progetti
 projects.h2: PROGETTI
 projects.sectionDesc: Lavori in Evidenza
+project.ariaLabel: Progetto
 about.h2: PROFILO
 about.subtitle: DIETRO IL CODICE
 about.h3: Chi sono
