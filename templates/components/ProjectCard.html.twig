@@ -20,7 +20,7 @@
                     <twig:ux:icon name="solar:arrow-right-up-linear" class="group-not-disabled:group-hover:translate-x-1 group-not-disabled:group-hover:-translate-y-0.5 transition-transform duration-300 h-6 w-7" />
                 </button>
                 {% else %}
-                <a href="{{slug}}" target="{{slug == '#this' ? null : '_blank'}}" rel="noopener" aria-label="{{'project.ariaLabel'|trans}} {{title}}" class="rounded-full bg-text w-[44px] h-[44px] absolute grid place-items-center top-4 right-10 group  max-sm:w-8 max-sm:h-8 max-sm:right-3">
+                <a href="{{slug}}" target="{{slug == '#this' ? null : '_blank'}}" rel="noopener" aria-label="{{'project.ariaLabel'|trans}} {{title}}" class="rounded-full bg-text w-[44px] h-[44px] absolute z-10 grid place-items-center top-4 right-10 group  max-sm:w-8 max-sm:h-8 max-sm:right-3">
                     <twig:ux:icon name="solar:arrow-right-up-linear" class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300 h-6 w-7" />
                 </a>
             {% endif %}
